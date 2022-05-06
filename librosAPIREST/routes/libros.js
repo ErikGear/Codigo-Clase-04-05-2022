@@ -26,16 +26,23 @@ router.post('/:idLibro', (req,res, next)=>{
 router.post('/', (req, res, next)=> {
   console.log(req.body);
   var libro  = {
-    titulo:req.body.titulo,
-    autor:req.body.autor
+    'id':tablaLibros2[tablaLibros2.length-1]['id']+1,
+    'titulo':req.body.titulo,
+    'autor':req.body.autor
   };
-  //insert en base de datos del objeto libro
-  // la respuesta de BD regresarla a el cliente 
-  
+   //insert en base de datos del objeto libro
+   tablaLibros2.push(libro);
+   // la respuesta de BD regresarla a el cliente 
+   res.status(200).json(tablaLibros2[tablaLibros2.length-1]);
 } );
 
-router.patch('/:idLibro',()=>{
+//simulando un update
+router.patch('/:idLibro',(req,res,next)=>{
+  var id = req.params.idLibro;
   
+  tablaLibros2[id]['titulo'] = req.body.titulo;
+  tablaLibros2[id]['a'] = req.body.autor;
+  res.status(200).json({'mensaje':'Actualizado'});
 });
 
 module.exports = router;
