@@ -1,0 +1,19 @@
+{
+  "name": "ejemplomongo",
+  "version": "0.0.1",
+  "description": "Ejemplo de modelo de libros mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongo",
+    "mongoose",
+    "node"
+  ],
+  "author": "erikegr",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^6.3.2"
+  }
+}
